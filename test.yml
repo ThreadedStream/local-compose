@@ -1,0 +1,13 @@
+docker-postgres:
+  path: /home/glasser/toys/dockerdevcompose/start-docker.sh
+
+kafka:
+  path: /home/glasser/kafka_2.12-2.2.1
+  depends_on:
+    - docker-postgres
+
+online_payments:
+  path: /home/glasser/toys/dockerdevcompose/sources/online_payments/start.sh
+  depends_on:
+    - docker-postgres
+    - kafka
